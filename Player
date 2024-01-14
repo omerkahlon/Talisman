@@ -1,0 +1,17 @@
+package com.example.myapplication;
+
+class Player {
+    private Integer StrengthPoints;
+    private Integer Min_Strength;
+    private Integer SkillPoints;
+    private Integer Min_Skill;
+    private Integer LifePoints;
+    private Integer Start_LifePoints;
+    private Tile StartTile;
+    private Spell[] spells = new Spell[3];
+    private boolean HasTalisman;
+    private
+
+    public Player(Integer Min_Strength,Integer Min_Skill,Integer Start_LifePoints,Tile StartTile, Spell[] spells, ) {
+        }
+}
