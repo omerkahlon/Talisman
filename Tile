@@ -1,0 +1,17 @@
+package com.example.mytal;
+
+public class Tile {
+    private Integer Region; // 1 - outer, 2 - middle, 3 - inner
+    private Boolean DrawCard;
+    private String TileName;
+    private Boolean HasEnemy;
+    private Boolean HasPlayer;
+    public Tile(Integer R, Boolean DC, String TN, Boolean HE, Boolean HP){
+        this.Region = R;
+        this.DrawCard = DC;
+        this.TileName = TN;
+        this.HasEnemy = HE;
+        this.HasPlayer = HP;
+    }
+
+}
