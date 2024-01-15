@@ -1,0 +1,17 @@
+package com.example.mytal;
+import java.util.Random;
+
+public class Warrior extends Player
+{
+    public Warrior(Integer Min_Strength, Integer Min_Skill, Integer LifePoints, Tile Tile, Spell[] spells, Integer StartMagic, Integer Weapon, boolean UseArmor)
+    {
+        super(Min_Strength, Min_Skill, LifePoints, Tile, spells, StartMagic, Weapon, UseArmor);
+        this.Name = "Warrior";
+    }
+    public Integer WarriorFight()
+    {
+        Dice Dice = new Dice();
+        return Math.max((Dice.Roll()), (Dice.Roll()));
+    }
+
+}
