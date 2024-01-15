@@ -1,0 +1,10 @@
+package com.example.mytal;
+
+public class Priest extends Player implements IPray
+{
+    public Priest(Integer Min_Strength, Integer Min_Skill, Integer LifePoints, Tile Tile, Spell[] spells, Integer StartMagic, Integer Weapon, boolean UseArmor) {
+        super(Min_Strength = 2, Min_Skill = 4, LifePoints = 4, Tile = Tile(""), spells, StartMagic, Weapon, UseArmor);
+        this.Name = "Priest";
+    }
+
+}
