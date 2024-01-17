@@ -15,5 +15,8 @@ public class Tile {
         this.HasPlayer = HP;
         this.TileNumber = TN;
     }
-
+        public void MoveUP(Map<Integer, Integer> M)
+    {
+        player.currtile = middle[M[player.currtile.num]]
+    }
 }
