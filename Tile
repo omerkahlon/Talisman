@@ -5,13 +5,15 @@ public class Tile {
     private Boolean DrawCard;
     private String TileName;
     private Boolean HasEnemy;
+    private Integer TileNumber;
     private Boolean HasPlayer;
-    public Tile(Integer R, Boolean DC, String TN, Boolean HE, Boolean HP){
+    public Tile(Integer R, Boolean DC, String TN, Boolean HE, Boolean HP, Integer TN){
         this.Region = R;
         this.DrawCard = DC;
         this.TileName = TN;
         this.HasEnemy = HE;
         this.HasPlayer = HP;
+        this.TileNumber = TN;
     }
 
 }
