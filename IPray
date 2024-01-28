@@ -1,0 +1,9 @@
+package com.example.mytal;
+
+public interface IPray
+{
+    Pray()
+    {
+        if ()
+    }
+}
