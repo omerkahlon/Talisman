@@ -1,19 +1,62 @@
-package com.example.mytal;
-
 public class Tile {
     private Integer Region; // 1 - outer, 2 - middle, 3 - inner
-    private Boolean DrawCard;
-    private String TileName;
+    private Integer DrawCard;
+    private final String TileName;
     private Boolean HasEnemy;
-    private Integer TileNumber;
+    public ArrayList<Enemy> Enemys;
     private Boolean HasPlayer;
-    public Tile(Integer R, Boolean DC, String TN, Boolean HE, Boolean HP, Integer TN){
+    public ArrayList<Player> Players;
+    public final Boolean CanPray;
+    public Tile(Integer R, Integer DC, String TN, Boolean CP){
         this.Region = R;
         this.DrawCard = DC;
         this.TileName = TN;
-        this.HasEnemy = HE;
+        this.HasEnemy = false;
+        this.CanPray = CP;
+        Enemys = null;
+        Players = null;
+    }
+    public Integer GetRegion()
+    {
+        return this.Region;
+    }
+    public Integer GetDrawCard()
+    {
+        return this.DrawCard;
+    }
+    public String GetTileName()
+    {
+        return this.TileName;
+    }
+    public Boolean GetEnemy()
+    {
+        return this.HasEnemy;
+    }
+    public Boolean GetPlayer()
+    {
+        return this.HasPlayer;
+    }
+    public void SetRegion(Integer R)
+    {
+        if (!(R > 3 || R < 1))
+        {
+            this.Region = R;
+        }
+    }
+    public void SetDrawCard(Integer DC)
+    {
+        if (!(DC > 3 || DC < 0))
+        {
+            this.DrawCard = DC;
+        }
+    }
+    public void SetHasEnemy(Boolean HE)
+    {
+        this.HasPlayer = HE;
+    }
+    public void HasPlayer(Boolean HP)
+    {
         this.HasPlayer = HP;
-        this.TileNumber = TN;
     }
         public void MoveUP(Map<Integer, Integer> M)
     {
