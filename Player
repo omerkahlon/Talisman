@@ -141,4 +141,8 @@ public class Player {
     {
         return this.Name;
     }
+    public void AddGold(Integer G)
+    {
+      Player.SetGold(Player.GetCurrGold() + G)
+    }
 }
