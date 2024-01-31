@@ -1,7 +1,18 @@
-public Unicorn()
-{
-  
-}
-public void Delete(Player p)
-{
-  p
+public Unicorn(Player P)
+        {
+        Player.GetsEcorts().Add("Unicorn");
+        P.SetStrengthPoints(P.GetStrenthPoints() + 1);
+        P.SkillPoints(P.GetSkillPoints() + 1);
+        }
+public void RemoveUnicorn(Player P)
+        {
+            for (p.Get : escorts)
+        {
+        if("Unicorn".equals(escort.GetName()))
+        {
+        escorts.remove(escort);
+        P.SetStrengthPoints(P.GetStrenthPoints() - 1);
+        P.SkillPoints(P.GetSkillPoints() - 1);
+        break; // Assuming there is at most one "Unicorn"
+        }
+        }
