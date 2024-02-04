@@ -1,4 +1,4 @@
-public class Unicorn extends AdventureCard
+public class Unicorn extends Escort
 {
     private Player P;
     public Unicorn(Player P)
