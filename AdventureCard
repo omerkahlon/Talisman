@@ -1,0 +1,8 @@
+public AdventureCard
+{
+    public string CardName;
+    public AdventureCard(String CN)
+    {
+        this.CardName = CN;
+    }
+}
