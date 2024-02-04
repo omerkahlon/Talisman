@@ -1,4 +1,4 @@
-public AdventureCard
+class AdventureCard
 {
     public string CardName;
     public AdventureCard(String CN)
