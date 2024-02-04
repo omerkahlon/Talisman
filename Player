@@ -130,6 +130,10 @@ public class Player {
     {
         this.Curr_lifePoints = NewLife;
     }
+    public void LoseLifePoint()
+    {
+        this.Curr_lifePoints--;
+    }
     public void SetCurrGold(Integer NewGold)
     {
         if (NewGold >= 0)
