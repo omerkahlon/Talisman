@@ -1,4 +1,4 @@
-class Gold extends AdventureCard
+public class Gold extends AdventureCard
 {
     public int AddGold;
     public Player P;
