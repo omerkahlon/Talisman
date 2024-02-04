@@ -1,4 +1,4 @@
-public class Gold
+public class Gold:AdventureCard
 {
     public int AddGold;
     public Player P;
