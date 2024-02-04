@@ -1,0 +1,12 @@
+public class Gold
+{
+    public int AddGold;
+    public Player P;
+    public Gold(Player P, int AddGold)
+    {
+        if (AddGold <= 2 && AddGold > 0)
+        {
+            this.P.AddGold(AddGold);
+        }
+    }
+}
