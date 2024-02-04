@@ -1,9 +1,10 @@
-public class Unicorn
+public class Unicorn:AdventureCard
 {
     private Player P;
     public Unicorn(Player P)
     {
         ArrayList<Escort> escorts = P.getEscorts();
+        this.CardName = "Unicorn"
         if (escorts.contains("Unicorn")) {
             P.GetEscorts().add("Unicorn");
             P.SetStrengthPoints(P.GetStrengthPoints() + 1);
