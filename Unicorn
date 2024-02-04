@@ -1,18 +1,25 @@
-public Unicorn(Player P)
+public class Unicorn
+{
+    private Player P;
+    public Unicorn(Player P)
+    {
+        ArrayList<Escort> escorts = P.getEscorts();
+        if (escorts.contains("Unicorn")) {
+            P.GetEscorts().add("Unicorn");
+            P.SetStrengthPoints(P.GetStrengthPoints() + 1);
+            P.SetSkillPoints(P.GetSkillPoints() + 1);
+    }
+    public void removeUnicorn() {
+        ArrayList<Escort> Escorts = this.P.GetEscorts();
+        if (escorts.contains("Unicorn"))
         {
-        Player.GetsEcorts().Add("Unicorn");
-        P.SetStrengthPoints(P.GetStrenthPoints() + 1);
-        P.SkillPoints(P.GetSkillPoints() + 1);
+            escorts.remove("Unicorn");
+            P.SetStrengthPoints(P.GetStrengthPoints() - 1);
+            P.SetSkillPoints(P.GetSkillPoints() - 1);
         }
-public void RemoveUnicorn(Player P)
+    }
+        public Player GetPlayer()
         {
-            for (p.Get : escorts)
-        {
-        if("Unicorn".equals(escort.GetName()))
-        {
-        escorts.remove(escort);
-        P.SetStrengthPoints(P.GetStrenthPoints() - 1);
-        P.SkillPoints(P.GetSkillPoints() - 1);
-        break; // Assuming there is at most one "Unicorn"
+            return this.P;
         }
-        }
+}
