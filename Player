@@ -159,4 +159,13 @@ public class Player {
         }
         return Removed;
     }
+    public boolean hasItem() 
+    {
+        for (String item : items) {
+            if (item.equals("Talisman")) {
+                return true; // Item found in the array
+            }
+        }
+        return false; // Item not found in the array
+    }
 }
