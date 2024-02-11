@@ -1,0 +1,42 @@
+public class Vagabond extends AdventureCard
+{
+    public Vagabond()
+    {
+    }
+    public String RollVagabond(Player Pl)
+    {
+        Dice dice = new Dice();
+        int rollResult = dice.Roll();
+        if (rollResult == 1) {
+            Pl.SetCurrTile(//Map1[x] = Burial nook);
+            return ("The Vagabond is in the Burial Nook");
+        } else if (rollResult == 2) {
+            Pl.SetCurrTile(//Map1[x] = Plain of Danger);
+            return ("The Vagabond is in the PLain of Danger");
+        } else if (rollResult == 3) {
+            Pl.SetCurrTile(//Map1[x] = Cursed Glade);
+            return ("The Vagabond is in the Cursed Glade");
+        } else if (rollResult == 4) {
+            Pl.SetCurrTile(//Map1[x] = Oasis);
+            return ("The Vagabond is in the Oasis");
+        } else if (rollResult == 5) {
+            Pl.SetCurrTile(//Map1[x] = cliffs);
+            return ("The Vagabond is in the Cliffs");
+        } else if (rollResult == 6)
+        {
+            Pl.SetCurrTile(//Map1[x] = forest);
+            return ("\"The Vagabond is in the Forest");
+        }
+    }
+    public void VagabondEncounter(Player Pl)
+    {
+        if (!PL.HasTalisman())
+        {
+            if (Pl.HasEmptySpace())
+            {
+                Pl.AddItem(item T);
+                Pl.GetCurrTile().SetDrawCard(Pl.GetCurrTile()--);
+            }
+        }
+    }
+}
