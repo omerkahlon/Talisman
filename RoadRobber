@@ -1,0 +1,6 @@
+public class RoadRobber extends Enemy {
+    public RoadRobber()
+    {
+        if ()
+    }
+}
