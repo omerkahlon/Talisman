@@ -168,4 +168,12 @@ public class Player {
         }
         return false; // Item not found in the array
     }
+    public boolean hasEmptySpace() {
+        for (String item : items) {
+            if (item == null) {
+                return true; // Empty space found in the array
+            }
+        }
+        return false; // No empty space found in the array
+    }
 }
