@@ -149,4 +149,14 @@ public class Player {
     {
       Player.SetGold(Player.GetCurrGold() + G)
     }
+    public Boolean RemoveEscort(String Name)
+    {
+        Boolean Removed = false;
+        if (this.Escorts.contains(Name))
+        {
+            escorts.remove(Name);
+            Removed = true;
+        }
+        return Removed;
+    }
 }
