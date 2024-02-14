@@ -1,0 +1,33 @@
+public class Erudite
+{
+    public Erudite()
+    {
+
+    }
+    public String EruditeInteraction(Player Pl ,int rollResult)
+    {
+        if (Pl.GetSkillPoints() >= 4)
+        {
+            if (rollResult == 1) {
+                // Drawspell
+                return ("The Erudite gave you a spell!");
+            } else if (rollResult == 2) {
+                Pl.AddGold(1);
+                return ("The Erudite gave you a gold!");
+            } else if (rollResult == 3) {
+                Pl.SetStrengthPoints(Pl.GetStrengthPoints() + 1);
+                return ("The Erudite gave you 1 strength!");
+            } else if (rollResult == 4) {
+                Pl.SetSKillPoints(Pl.GetSkillPoints() + 1);
+                return ("The Erudite gave you 1 skill!");
+            } else if (rollResult == 5) {
+                Pl.SetLifePoints(Pl.GetLifePoints() + 1);
+                return ("The Erudite gave you 1 life!");
+            } else if (rollResult == 6) {
+                Pl.SetCurrTile(//NewTIle);
+                return ("The Erudite teleported you to" + Pl.GetCurrTile().GetName() + "!");
+            }
+        }
+        //remove from tile
+    }
+}
