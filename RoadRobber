@@ -1,6 +1,9 @@
 public class RoadRobber extends Enemy {
-    public RoadRobber()
+    public RoadRobber(Player Pl)
     {
-        if ()
+        if (Pl.GetCurrGold() > 1 && //player wants to)
+            {
+                //do not engage
+            }
     }
 }
