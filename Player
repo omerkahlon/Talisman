@@ -1,4 +1,3 @@
-package com.example.mytal;
 import android.view.inputmethod.InsertGesture;
 
 import java.util.ArrayList;
@@ -147,7 +146,7 @@ public class Player {
     }
     public void AddGold(Integer G)
     {
-      Player.SetGold(Player.GetCurrGold() + G)
+        Player.SetGold(Player.GetCurrGold() + G)
     }
     public Boolean RemoveEscort(String Name)
     {
@@ -159,7 +158,7 @@ public class Player {
         }
         return Removed;
     }
-    public boolean hasItem() 
+    public boolean hasItem()
     {
         for (String item : items) {
             if (item.equals("Talisman")) {
@@ -188,5 +187,39 @@ public class Player {
         }
         // If no empty space found
         System.out.println("Inventory is full. Cannot add " + newItem + ".");
+    }
+    public int Roll()
+    {
+        Dice dice = new Dice();
+        int rollResult = dice.Roll();
+        return rollResult;
+    }
+    public void movement(Player p)
+    {
+        Dice dice = new Dice();
+        int rollResult = dice.Roll();
+        //Parse
+        if (Parse = true)
+        {
+            if(p.GetCurrTile().GetRegion() == 1)
+                p.SetTile((Outermap[(p.GetCurrTile().GetMapPlace() + roll result) %24])
+            if(p.GetCurrTile().GetRegion() == 2)
+                p.SetTile((Middlemap[(p.GetCurrTile().GetMapPlace() + roll result) %16])
+
+        }
+        else
+        {
+            if(p.GetCurrTile().GetRegion() == 1)
+                p.SetTile((Outermap[(p.GetCurrTile().GetMapPlace() - roll result) %24])
+            if(p.GetCurrTile().GetRegion() == 2)
+                p.SetTile((Middlemap[(p.GetCurrTile().GetMapPlace() - roll result) %16])        }
+    }
+    public void Turn(Player p)
+    {
+        boolean TurnSkip = false;
+        while(TurnSkip)
+        {
+            p.movement(p);
+        }
     }
 }
