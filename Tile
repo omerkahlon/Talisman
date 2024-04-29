@@ -1,25 +1,27 @@
+package com.example.mytal;
+
+import java.util.ArrayList;
+
 public class Tile {
-    private Integer Region; // 1 - outer, 2 - middle, 3 - inner
     private Integer DrawCard;
     private final String TileName;
     private Boolean HasEnemy;
     public ArrayList<Enemy> Enemys;
     private Boolean HasPlayer;
     public ArrayList<Player> Players;
-    public final Boolean CanPray;
-    public Tile(Integer R, Integer DC, String TN, Boolean CP){
-        this.Region = R;
-        this.DrawCard = DC;
-        this.TileName = TN;
+    public Boolean IsSpecial;
+    public int MapIndex;
+
+    public Tile(Integer DrawCard, String TileName, Boolean IsSpecial, int Index){
+        this.DrawCard = DrawCard;
+        this.TileName = TileName;
+        this.IsSpecial = IsSpecial;
         this.HasEnemy = false;
-        this.CanPray = CP;
+        this.MapIndex = Index;
         Enemys = null;
         Players = null;
     }
-    public Integer GetRegion()
-    {
-        return this.Region;
-    }
+
     public Integer GetDrawCard()
     {
         return this.DrawCard;
@@ -36,16 +38,9 @@ public class Tile {
     {
         return this.HasPlayer;
     }
-    public void SetRegion(Integer R)
-    {
-        if (!(R > 3 || R < 1))
-        {
-            this.Region = R;
-        }
-    }
     public void SetDrawCard(Integer DC)
     {
-        if (!(DC > 3 || DC < 0))
+        if (!(DC > 2 || DC < 0))
         {
             this.DrawCard = DC;
         }
@@ -58,8 +53,9 @@ public class Tile {
     {
         this.HasPlayer = HP;
     }
-        public void MoveUP(Map<Integer, Integer> M)
+
+    public virtual void Interaction()
     {
-        player.currtile = middle[M[player.currtile.num]]
+        if 
     }
 }
