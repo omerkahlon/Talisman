@@ -1,5 +1,6 @@
+package com.example.mytal;
 import android.view.inputmethod.InsertGesture;
-
+import com.example.mytal.Board;
 import java.util.ArrayList;
 import java.lang.reflect.Array;
 
@@ -16,22 +17,20 @@ public class Player {
     public final Tile StartTile;
     public Tile CurrTile;
     private Spell[] Spells = new Spell[3];
-    private ArrayList<Escort> Escorts = new ArrayList<Escort>();
-    private final Integer Start_with_Spell;
-    private final Integer UseWeapon;
+    private ArrayList<Escort> Escorts = new ArrayList<>();
     private Item[] Items = new Item[4];
-    private ArrayList<Enemy> Loot = new ArrayList<Enemy>();
-    private final Boolean UseArmor;
-    public Player(Integer Min_Strength,Integer Min_Skill,Integer LifePoints,Tile Tile, Spell[] spells, Integer StartMagic, Integer Weapon, boolean UseArmor)
+    private ArrayList<Enemy> Loot = new ArrayList<>();
+
+    public Player(Integer Min_Strength,Integer Min_Skill,Integer LifePoints,Tile Tile)
     {
         this.Min_StrengthPoints = Min_Strength;
+        this.StrengthPoints = Min_Strength;
         this.Min_SkillPoints = Min_Skill;
+        this.SkillPoints = Min_Skill;
         this.Start_lifePoints = LifePoints;
+        this.Curr_lifePoints = LifePoints;
         this.StartTile = Tile;
         this.CurrTile = Tile;
-        this.Start_with_Spell = StartMagic;
-        this.UseWeapon = Weapon;
-        this.UseArmor = UseArmor;
     }
     public Integer GetStrengthPoints()
     {
@@ -89,49 +88,31 @@ public class Player {
     {
         return this.Loot;
     }
-    public Integer GetStartWithSpell()
-    {
-        return this.Start_with_Spell;
-    }
-    public Integer GetUseWeapon()
-    {
-        return this.UseWeapon;
-    }
-    public Boolean GetUseArmor()
-    {
-        return this.UseArmor;
-    }
-    public boolean setStrengthPoints(int newStrength)
+    public void SetStrengthPoints(int newStrength)
     {
         if (newStrength >= this.Min_StrengthPoints)
         {
             this.StrengthPoints = newStrength;
-            return true; // Strength points successfully updated
-        }
-        else
-        {
-            return false; // Can't set Strength points below the minimum value
         }
     }
-    public Boolean SetSkillPoints(Integer NewSkill)
+    public void SetSkillPoints(Integer NewSkill)
     {
         if (NewSkill >= this.Min_SkillPoints)
         {
             this.SkillPoints = NewSkill;
-            return true; //Skill Points successfully updated
-        }
-        else
-        {
-            return false; // Can't set Skill points below the minimum value
         }
     }
     public void SetLifePoints(Integer NewLife)
     {
         this.Curr_lifePoints = NewLife;
     }
-    public void LoseLifePoint()
+    public void LostLifePoints()
     {
-        this.Curr_lifePoints--;
+        this.Curr_lifePoints -= 1;
+    }
+    public void SetTile(Tile t)
+    {
+        this.CurrTile = t;
     }
     public void SetCurrGold(Integer NewGold)
     {
@@ -144,82 +125,34 @@ public class Player {
     {
         return this.Name;
     }
-    public void AddGold(Integer G)
-    {
-        Player.SetGold(Player.GetCurrGold() + G)
+    public boolean HasTalisman() {
+        for (Item item : Items) {
+            if ("Talisman".equals(item.GetName())) {
+                return true;
+            }
+        }
+        return false;
     }
-    public Boolean RemoveEscort(String Name)
+    public void SetTendancy(int newTend)
     {
-        Boolean Removed = false;
-        if (this.Escorts.contains(Name))
+        if (newTend >= 0 && newTend <= 2)
+            this.Tendency = newTend;
+    }
+    public void Turn()
+    {
+        Dice D = new Dice();
+        //wants to cast - Bool
+        while(!TurnSkipped)
         {
-            escorts.remove(Name);
-            Removed = true;
-        }
-        return Removed;
-    }
-    public boolean hasItem()
-    {
-        for (String item : items) {
-            if (item.equals("Talisman")) {
-                return true; // Item found in the array
+            if(wantstocast)
+            {
+                //cast
             }
-        }
-        return false; // Item not found in the array
-    }
-    public boolean hasEmptySpace() {
-        for (String item : items) {
-            if (item == null) {
-                return true; // Empty space found in the array
-            }
-        }
-        return false; // No empty space found in the array
-    }
-    public void addItem(String newItem)
-    {
-        // Find an empty space in the inventory
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] == null) {
-                // Found an empty space, add the item
-                items[i] = newItem;
-                return;
-            }
-        }
-        // If no empty space found
-        System.out.println("Inventory is full. Cannot add " + newItem + ".");
-    }
-    public int Roll()
-    {
-        Dice dice = new Dice();
-        int rollResult = dice.Roll();
-        return rollResult;
-    }
-    public void movement(Player p)
-    {
-        Dice dice = new Dice();
-        int rollResult = dice.Roll();
-        //Parse
-        if (Parse = true)
-        {
-            if(p.GetCurrTile().GetRegion() == 1)
-                p.SetTile((Outermap[(p.GetCurrTile().GetMapPlace() + roll result) %24])
-            if(p.GetCurrTile().GetRegion() == 2)
-                p.SetTile((Middlemap[(p.GetCurrTile().GetMapPlace() + roll result) %16])
+            //click
+            int move = D.Roll();
+            //left/right
 
         }
-        else
-        {
-            if(p.GetCurrTile().GetRegion() == 1)
-                p.SetTile((Outermap[(p.GetCurrTile().GetMapPlace() - roll result) %24])
-            if(p.GetCurrTile().GetRegion() == 2)
-                p.SetTile((Middlemap[(p.GetCurrTile().GetMapPlace() - roll result) %16])        }
     }
-    public void Turn(Player p)
-    {
-        boolean TurnSkip = false;
-        while(TurnSkip)
-        {
-            p.movement(p);
-        }
-    }
+
 }
