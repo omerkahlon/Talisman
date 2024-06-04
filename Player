@@ -1,9 +1,3 @@
-package com.example.mytal;
-import android.view.inputmethod.InsertGesture;
-import com.example.mytal.Board;
-import java.util.ArrayList;
-import java.lang.reflect.Array;
-
 public class Player {
     protected String Name;
     public Integer StrengthPoints;
@@ -109,6 +103,10 @@ public class Player {
     public void LostLifePoints()
     {
         this.Curr_lifePoints -= 1;
+        if (this.Curr_lifePoints == 0)
+        {
+            Death();
+        }
     }
     public void SetTile(Tile t)
     {
@@ -138,21 +136,8 @@ public class Player {
         if (newTend >= 0 && newTend <= 2)
             this.Tendency = newTend;
     }
-    public void Turn()
+    public void Death()
     {
-        Dice D = new Dice();
-        //wants to cast - Bool
-        while(!TurnSkipped)
-        {
-            if(wantstocast)
-            {
-                //cast
-            }
-            //click
-            int move = D.Roll();
-            //left/right
 
-        }
     }
-
 }
