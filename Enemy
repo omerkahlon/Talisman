@@ -1,0 +1,44 @@
+package com.example.mytal;
+
+public class Enemy
+{
+    public final String EnemyName;
+    public final Boolean IsStrength;
+    public Integer Power;
+    public Tile TileSpawned;
+    public Enemy(String EnemyName, Boolean IsStrength, Integer Power, Tile TileSpawn)
+    {
+        this.EnemyName = EnemyName;
+        this.IsStrength = IsStrength;
+        this.Power = Power;
+        this.TileSpawned = TileSpawn;
+    }
+    public String GetEnemyName()
+    {
+        return this.EnemyName;
+    }
+    public Boolean GetIsStrength()
+    {
+        return this.IsStrength;
+    }
+    public Integer GetPower()
+    {
+        return this.Power;
+    }
+    public Tile GetTileSpawned()
+    {
+        return this.TileSpawned;
+    }
+    public void SetPower(Integer NewP)
+    {
+        if (NewP > 0)
+        {
+            this.Power = NewP;
+        }
+    }
+    public void SetTile(Tile newTile)
+    {
+        this.TileSpawned = newTile;
+    }
+}
+
