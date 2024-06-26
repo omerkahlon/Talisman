@@ -1,9 +1,21 @@
-public class RoadRobber extends Enemy {
-    public RoadRobber(Player Pl)
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Board;
+import com.example.talisman.Player;
+import com.example.talisman.Enemy;
+public class RoadRobber extends AdventureCard
+{
+    public RoadRobber()
     {
-        if (Pl.GetCurrGold() > 1 && //player wants to)
-            {
-                //do not engage
-            }
+        super("Road Robber");
+    }
+    public void RobberInteraction(Player Pl)
+    {
+        if (Pl.GetCurrGold() > 1)
+        {
+            Pl.SetCurrGold(Pl.Curr_Gold--);
+        }
+        else Board.Fight(Pl, new Enemy("Road Robber", true, 4, Pl.CurrTile));
     }
 }
