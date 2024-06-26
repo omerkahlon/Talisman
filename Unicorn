@@ -1,0 +1,19 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.Item;
+import com.example.talisman.Player;
+
+public class Unicorn extends Item
+{
+    public Unicorn()
+    {
+        super("Unicorn");
+    }
+    public Unicorn(Player player)
+    {
+        super("Unicorn");
+        player.AddItem(this);
+        player.SetStrengthPoints(player.GetStrengthPoints() + 1);
+        player.SetSkillPoints(player.GetSkillPoints() + 1);
+    }
+}
