@@ -1,0 +1,11 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.Item;
+
+public class Talisman extends Item
+{
+    public Talisman()
+    {
+        super("Talisman");
+    }
+}
