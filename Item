@@ -1,14 +1,11 @@
-package com.example.mytal;
+package com.example.talisman;
 
+import com.example.talisman.AdventureCard;
 public class Item extends AdventureCard
 {
-    public String Name;
     public Item(String Name)
     {
-        this.Name = Name;
-    }
-    public String GetName()
-    {
-        return this.Name;
+        super(Name);
     }
 }
+
