@@ -1,0 +1,198 @@
+
+package com.example.talisman;
+
+import android.content.Context;
+import android.view.View;
+
+import com.example.talisman.AdventureCards.Unicorn;
+import com.example.talisman.SpecialTiles.Church;
+import com.example.talisman.SpecialTiles.City;
+import com.example.talisman.SpecialTiles.Cliffs;
+import com.example.talisman.SpecialTiles.Forest;
+import com.example.talisman.SpecialTiles.Graveyard;
+import com.example.talisman.SpecialTiles.Inn;
+import com.example.talisman.SpecialTiles.Village;
+import com.example.talisman.SpecialTiles.Guard;
+import java.util.Collections;
+
+import java.util.ArrayList;
+
+public class Board extends View
+{
+    public Tile[] Map = new Tile[24];
+    public Player[] Players = new Player[4];
+    public ArrayList<AdventureCard> CardsDeck = new ArrayList<AdventureCard>();
+    public Board(Context context)
+    {
+
+        CreateMap();
+        CreateCardDeck();
+
+    }
+
+
+    public void CreateMap()
+    {
+        Map[0] = new City();
+        Map[1] = new Tile(1, "Fields", false, 1);
+        Map[2] = new Tile(1, "Hills", false, 2);
+        Map[3] = new Tile(1, "Plains", false, 3);
+        Map[4] = new Tile(1, "Grove", false, 4);
+        Map[5] = new Tile(1, "Plains", false, 5);
+        Map[6] = new Inn();
+        Map[7] = new Tile(1, "Fields", false, 7);
+        Map[8] = new Tile(2, "Ruins", false, 8);
+        Map[9] = new Tile(1, "Plains", false, 9);
+        Map[10] = new Forest();
+        Map[11] = new Tile(1, "Fields", false, 11);
+        Map[12] = new Village();
+        Map[13] = new Tile(1, "Fields", false, 13);
+        Map[14] = new Graveyard();
+        Map[15] = new Tile(1, "Grove", false, 15);
+        Map[16] = new Guard();
+        Map[17] = new Tile(1, "Hills", false, 17);
+        Map[18] = new Church();
+        Map[19] = new Tile(1, "Fields", false, 19);
+        Map[20] = new Cliffs();
+        Map[21] = new Tile(1, "Plains", false, 21);
+        Map[22] = new Tile(1, "Grove", false, 22);
+        Map[23] = new Tile(1, "Fields", false, 23);
+    }
+    public void CreateCardDeck()
+    {
+        CardsDeck.add(new Enemy("Shadow", false, 1));
+        CardsDeck.add(new Enemy("Dragon", true, 7));
+        CardsDeck.add(new Enemy("Fright", false, 2));
+        CardsDeck.add(new Enemy("HobGoblin", true, 3));
+        CardsDeck.add(new Enemy("Ghost", false, 4));
+        CardsDeck.add(new Enemy("Terror", false, 5));
+        CardsDeck.add(new Enemy("Fright", false, 3));
+        CardsDeck.add(new Enemy("Lion", true, 3));
+        CardsDeck.add(new Enemy("Gorilla", true, 3));
+        CardsDeck.add(new Enemy("HobGoblin", true, 4));
+        CardsDeck.add(new Enemy("Ogre", true, 6));
+        CardsDeck.add(new Enemy("Paler", false, 5));
+        CardsDeck.add(new Enemy("Ghost", false, 5));
+        CardsDeck.add(new Enemy("Demon King", false, 12));
+        CardsDeck.add(new Enemy("Snake", true, 4));
+        CardsDeck.add(new Enemy("Ancient Dragon", true, 9));
+        CardsDeck.add(new Enemy("Wild Hog", true, 1));
+        CardsDeck.add(new Enemy("Wolf", true, 4));
+        CardsDeck.add(new Enemy("Red Dragon", true, 8));
+        CardsDeck.add(new Enemy("Wild Boar", true, 2));
+        CardsDeck.add(new Enemy("Goblin", true, 4));
+        CardsDeck.add(new Enemy("Goblin Mage", false, 5));
+        CardsDeck.add(new Enemy("Shadow", false, 2));
+        CardsDeck.add(new Enemy("Black Dragon", true, 10));
+        CardsDeck.add(new Enemy("Terror", false, 5));
+        CardsDeck.add(new Enemy("Barbarian Lion", true, 4));
+        CardsDeck.add(new Enemy("Cannibal Native", true, 3));
+        CardsDeck.add(new Enemy("Cannibal Shaman", false, 6));
+        CardsDeck.add(new Enemy("Fire Golem", true, 7));
+        CardsDeck.add(new Enemy("Giant", true, 7));
+        CardsDeck.add(new Enemy("Baby Ogre", true, 3));
+        CardsDeck.add(new Enemy("Fire Spirit", true, 5));
+        CardsDeck.add(new Enemy("Ice Spirit", false, 4));
+        CardsDeck.add(new Enemy("Earth Spirit", true, 5));
+        CardsDeck.add(new Enemy("Wind Spirit", true, 5));
+        CardsDeck.add(new Enemy("Behemoth", true, 13));
+        CardsDeck.add(new Enemy("Lesser Dragon", true, 5));
+        CardsDeck.add(new Enemy("Leviathan", true, 12));
+        CardsDeck.add(new Enemy("Terror", false, 7));
+        CardsDeck.add(new Enemy("Troll", true, 8));
+        CardsDeck.add(new Enemy("Dark Magician", false, 7));
+        CardsDeck.add(new Enemy("Evil DemiGod", false, 14));
+        CardsDeck.add(new Enemy("Shadow Lord", false, 10));
+        CardsDeck.add(new Enemy("Rooster", true, 1));
+        CardsDeck.add(new Enemy("Shadow rat", false, 1));
+        CardsDeck.add(new Unicorn());
+
+        /*
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+        CardsDeck.add();
+
+         */
+        Collections.shuffle(CardsDeck);
+    }
+    public void CreatePlayers()
+    {
+        Player player1 = new Player("Player 1",3, 3, 4, Map[0], );
+        Player player2 = new Player("Player 2",3, 3, 4, Map[0], );
+        Player player3 = new Player("Player 3",3, 3, 4, Map[0], );
+    }
+    public void takeTurn(Player player, Board board)
+    {
+        // Player moves
+        Dice D6 = new Dice(6);
+        int PlayerBonus = D6.Roll();
+        int currentTileIndex = player.CurrTile.MapIndex; // Get current tile index
+        // Calculate new tile positions based on player bonus (steps)
+        int newPositionClockwise = (currentTileIndex + PlayerBonus) % Map.length;
+        int newPositionCounterClockwise = (currentTileIndex - PlayerBonus + Map.length) % Map.length;
+        // Get the new tiles from the map array
+        Tile tileClockwise = Map[newPositionClockwise];
+        Tile tileCounterClockwise = Map[newPositionCounterClockwise];
+        //left of right?
+        /*
+        if (left)
+            player.SetTile(tileCounterClockwise);
+        else player.SetTile(tileClockwise);
+        // Check if there are other characters on the same tile
+        ArrayList<Player> otherPlayers = newTile.Players;
+        if (!otherPlayers.isEmpty()) {
+            // Initiate combat
+            for (Player enemy : otherPlayers)
+            {
+                //wants to combat?
+                if (wantsToCombat) {
+                    Board.FightPlayers(player, enemy);
+                }
+            }
+        } else {
+            // Draw a card
+            DrawCard(player);
+        }
+
+         */
+        if (player.CurrTile.IsSpecial)
+            player.CurrTile.Interaction();
+    }
+    public static void Fight(Player player, Enemy enemy)
+    {
+        Dice D6 = new Dice(6);
+        int PlayerBonus = D6.Roll();
+        int EnemyBonus = D6.Roll();
+        if (enemy.IsStrength)
+        {
+            if(player.StrengthPoints + PlayerBonus > enemy.Power + EnemyBonus)
+                player.SetCurrGold(player.Curr_Gold++);
+            else player.LostLifePoints();
+        }
+        else {
+            if(player.SkillPoints + PlayerBonus > enemy.Power + EnemyBonus)
+                player.SetCurrGold(player.Curr_Gold++);
+            else player.LostLifePoints();
+        }
+    }
+    public static void FightPlayers(Player p1, Player p2)
+    {
+        Dice D6 = new Dice(6);
+        int p1Bonus = D6.Roll();
+        int p2Bonus = D6.Roll();
+        if(p1.StrengthPoints + p1Bonus > p2.StrengthPoints + p2Bonus)
+            p2.LostLifePoints();
+        else p1.LostLifePoints();
+    }
+    public void DrawCard(Player player)
+    {
+        AdventureCard ad = CardsDeck.
+    }
+}
