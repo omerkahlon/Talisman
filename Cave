@@ -1,0 +1,39 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Dice;
+import com.example.talisman.Enemy;
+import com.example.talisman.Player;
+import com.example.talisman.Tile;
+import com.example.talisman.Board;
+public class Cave extends AdventureCard
+{
+    private Tile MyTile;
+    public Cave()
+    {
+        super("Cave");
+    }
+    public void UseCard(Player play)
+    {
+        this.MyTile = play.CurrTile;
+        Dice d = new Dice(6);
+        int number = d.Roll();
+        switch (number)
+        {
+            case 1:
+                Board.Fight(play, new Enemy("Dragon", true, 7, play.CurrTile));
+                break;
+            case 2:
+                Board.Fight(play, new Enemy("Goblin", true, 3, play.CurrTile));
+                break;
+            case 3:
+                play.SetCurrGold(play.Curr_Gold  + 1);;
+                break;
+            case 4:
+                play.SetCurrGold(play.Curr_Gold  + 2);
+                break;
+            case 5+6:
+                play.SetLifePoints(play.Curr_lifePoints + 1);
+        }
+    }
+}
