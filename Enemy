@@ -1,17 +1,23 @@
-package com.example.mytal;
 
-public class Enemy
+package com.example.talisman;
+
+public class Enemy extends AdventureCard
 {
-    public final String EnemyName;
     public final Boolean IsStrength;
     public Integer Power;
     public Tile TileSpawned;
     public Enemy(String EnemyName, Boolean IsStrength, Integer Power, Tile TileSpawn)
     {
-        this.EnemyName = EnemyName;
+        super(EnemyName);
         this.IsStrength = IsStrength;
         this.Power = Power;
         this.TileSpawned = TileSpawn;
+    }
+    public Enemy(String EnemyName, Boolean IsStrength, Integer Power)
+    {
+        super(EnemyName);
+        this.IsStrength = IsStrength;
+        this.Power = Power;
     }
     public String GetEnemyName()
     {
@@ -41,4 +47,3 @@ public class Enemy
         this.TileSpawned = newTile;
     }
 }
-
