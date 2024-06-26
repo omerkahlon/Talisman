@@ -1,0 +1,45 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.Player;
+import com.example.talisman.Tile;
+import com.example.talisman.AdventureCard;
+public class DungeonMarket extends AdventureCard
+{
+    public Tile MyTile;
+    public DungeonMarket()
+    {
+        super("Dungeon Market");
+    }
+    public void DungeonMarketInteraction(Player player, int number)
+    {
+        this.MyTile = player.CurrTile;
+        //text: enter a number.
+        //1 for heal(1g per 1), 2 Samson's potion (3g, +1 stg),3 Arcana's blessing (3g, +1 skl)
+        switch (number) {
+            case 1:
+                if (player.GetCurrGold() > 0 && player.Curr_lifePoints < player.GetStartLifePoints()) {
+                    // Perform healing and deduct gold if conditions are met
+                    player.SetLifePoints(player.Curr_lifePoints + 1);
+                    player.SetCurrGold(player.GetCurrGold() - 1);
+                }
+                break;
+            case 2:
+                if (player.GetCurrGold() >= 3)
+                {
+                    player.SetStrengthPoints(player.GetStrengthPoints() + 1);
+                    player.SetCurrGold(player.GetCurrGold() - 3);
+                }
+                else System.out.println("Not enough gold");
+                break;
+            case 3:
+                if (player.GetCurrGold() >= 3) {
+                    player.SetSkillPoints(player.GetSkillPoints() + 1);
+                    player.SetCurrGold(player.GetCurrGold() - 3);
+                }
+                else System.out.println("Not enough gold");
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+}
