@@ -1,0 +1,43 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Dice;
+import com.example.talisman.Player;
+
+public class Phantom extends AdventureCard
+{
+    public Phantom()
+    {
+        super("Phantom");
+    }
+    public String PhantomInteraction(Player Pl) {
+        if (Pl.GetTendency() < 1)
+        {
+            Dice d = new Dice(6);
+            int rollResult = d.Roll();
+            String message;
+            switch (rollResult) {
+                case 3:
+                    Pl.SetCurrGold(Pl.Curr_Gold + 2);
+                    message = "The Phantom gave you a gold!";
+                    break;
+                case 4:
+                    Pl.SetStrengthPoints(Pl.GetStrengthPoints() + 1);
+                    message = "The Phantom gave you 1 strength!";
+                    break;
+                case 5:
+                    Pl.SetSkillPoints(Pl.GetSkillPoints() + 1);
+                    message = "The Phantom gave you 1 skill!";
+                    break;
+                case 6:
+                    Pl.SetLifePoints(Pl.GetLifePoints() + 1);
+                    message = "The Phantom gave you 1 life!";
+                    break;
+                default:
+                    message = "The Phantom seems confused..."; // Handle unexpected roll results
+            }
+            return message;
+        }
+        return "The Phantom snores at you. You need to be evil!";
+    }
+}
