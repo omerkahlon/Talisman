@@ -1,0 +1,14 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.Item;
+import com.example.talisman.Player;
+public class MagicRing extends Item
+{
+    public MagicRing(Player player)
+    {
+        super("Magic Ring");
+        player.AddItem(this);
+        player.SetStrengthPoints(player.GetStrengthPoints() + 1);
+        player.SetSkillPoints(player.GetSkillPoints() + 1);
+    }
+}
