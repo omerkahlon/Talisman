@@ -1,0 +1,31 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Dice;
+import com.example.talisman.Tile;
+import com.example.talisman.Player;
+public class Witch extends AdventureCard {
+
+    private Tile MyTile;
+    public Witch() {
+        super("Witch");
+    }
+
+    public void WitchInteraction(Player play)
+    {
+        this.MyTile = play.CurrTile;
+        Dice d = new Dice(4);
+        int number = d.Roll();
+        switch (number)
+        {
+            case 1:
+                play.LostLifePoints();
+            case 2:
+                play.SetCurrGold(play.Curr_Gold  - 1);
+            case 3:
+                play.SetSkillPoints(play.SkillPoints + 1);
+            case 4:
+                play.SetStrengthPoints(play.StrengthPoints + 1);
+        }
+    }
+}
