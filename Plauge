@@ -1,15 +1,18 @@
+package com.example.talisman.AdventureCards;
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Board;
+import com.example.talisman.Player;
 public class Plague extends AdventureCard
 {
-    public Player P;
-    public ArrayList<Player> Players;
     public Plague()
     {
-        int PlayerRegion = P.GetCurrTile().GetRegion();
-        for (Player player : Players) {
-            int CurrentPlayerRegion = player.GetCurrTile().GetRegion();
-            if (CurrentPlayerRegion == PlayerRegion) {
-                player.LoseLifePoint();
-            }
+        super("Plague");
+    }
+    public void PlagueInteraction()
+    {
+        for (Player player : Players)
+        {
+            player.LostLifePoints();
         }
     }
 }
