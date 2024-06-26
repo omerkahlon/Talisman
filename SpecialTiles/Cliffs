@@ -1,7 +1,7 @@
-package com.example.mytal.SpecialTiles;
+package com.example.talisman.SpecialTiles;
 
-import com.example.mytal.Player;
-import com.example.mytal.Tile;
+import com.example.talisman.Player;
+import com.example.talisman.Tile;
 
 public class Cliffs extends Tile
 {
