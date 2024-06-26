@@ -1,0 +1,21 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Player;
+
+public class Satan extends AdventureCard
+{
+    public Satan()
+    {
+        super("Satan");
+    }
+    public void UseCard(Player player)
+    {
+        if (player.GetTendency() == 0)
+        {
+            player.SetLifePoints(player.GetLifePoints() + 1);
+        } else if (player.GetTendency() == 2) {
+            player.LostLifePoints();
+        }
+    }
+}
