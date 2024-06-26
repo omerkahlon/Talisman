@@ -1,8 +1,14 @@
-class AdventureCard
+package com.example.talisman;
+
+public class AdventureCard
 {
-    public string CardName;
+    public String CardName;
     public AdventureCard(String CN)
     {
         this.CardName = CN;
+    }
+    public String GetName()
+    {
+        return this.CardName;
     }
 }
