@@ -1,0 +1,14 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.Item;
+import com.example.talisman.Player;
+
+public class SolomonCrown extends Item
+{
+    public SolomonCrown(Player player)
+    {
+        super("Solomon Crown");
+        player.AddItem(this);
+        player.SetSkillPoints(player.GetSkillPoints() + 2);
+    }
+}
