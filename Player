@@ -1,3 +1,9 @@
+package com.example.talisman;
+import android.view.inputmethod.InsertGesture;
+import com.example.talisman.Board;
+import java.util.ArrayList;
+import java.lang.reflect.Array;
+
 public class Player {
     protected String Name;
     public Integer StrengthPoints;
@@ -10,13 +16,11 @@ public class Player {
     public Integer Tendency; //0 - bad, 1 - neutral, 2 - good
     public final Tile StartTile;
     public Tile CurrTile;
-    private Spell[] Spells = new Spell[3];
-    private ArrayList<Escort> Escorts = new ArrayList<>();
-    private Item[] Items = new Item[4];
-    private ArrayList<Enemy> Loot = new ArrayList<>();
+    private ArrayList<Item> Items = new ArrayList<Item>();
 
-    public Player(Integer Min_Strength,Integer Min_Skill,Integer LifePoints,Tile Tile)
+    public Player(String Name, Integer Min_Strength,Integer Min_Skill,Integer LifePoints,Tile Tile)
     {
+        this.Name = Name;
         this.Min_StrengthPoints = Min_Strength;
         this.StrengthPoints = Min_Strength;
         this.Min_SkillPoints = Min_Skill;
@@ -30,17 +34,9 @@ public class Player {
     {
         return this.StrengthPoints;
     }
-    public Integer GetMinStrengthPoints()
-    {
-        return this.Min_StrengthPoints;
-    }
     public Integer GetSkillPoints()
     {
         return this.SkillPoints;
-    }
-    public Integer GetMinSkillPoints()
-    {
-        return this.Min_SkillPoints;
     }
     public Integer GetLifePoints()
     {
@@ -66,22 +62,7 @@ public class Player {
     {
         return this.CurrTile;
     }
-    public Spell[] GetSpells()
-    {
-        return this.Spells;
-    }
-    public ArrayList<Escort> GetEscorts()
-    {
-        return this.Escorts;
-    }
-    public Item[] GetItems()
-    {
-        return this.Items;
-    }
-    public ArrayList<Enemy> GetLoot()
-    {
-        return this.Loot;
-    }
+
     public void SetStrengthPoints(int newStrength)
     {
         if (newStrength >= this.Min_StrengthPoints)
@@ -108,7 +89,7 @@ public class Player {
             Death();
         }
     }
-    public void SetTile(Tile t)
+    public void SetCurrTile(Tile t)
     {
         this.CurrTile = t;
     }
@@ -136,8 +117,10 @@ public class Player {
         if (newTend >= 0 && newTend <= 2)
             this.Tendency = newTend;
     }
-    public void Death()
-    {
+    public void Death() {}
 
+    public void AddItem(Item it)
+    {
+        Items.add(it);
     }
 }
