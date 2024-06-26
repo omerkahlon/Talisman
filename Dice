@@ -1,16 +1,17 @@
-package com.example.mytal;
+
+package com.example.talisman;
 import java.util.Random;
 
 public class Dice {
-    private static final int SIDES = 6;
-    private Random random;
+    private final int SIDES;
 
-    public Dice() {
-        this.random = new Random();
+    public Dice(int s)
+    {
+        this.SIDES = s;
     }
 
     public int Roll() {
-        return random.nextInt(SIDES) + 1;
+        Random R = new Random();
+        return R.nextInt(SIDES) + 1;
     }
 }
-
