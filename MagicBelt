@@ -1,0 +1,14 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.Item;
+import com.example.talisman.Player;
+
+public class MagicBelt extends Item
+{
+    public MagicBelt(Player player)
+    {
+        super("Magic Belt");
+        player.AddItem(this);
+        player.SetStrengthPoints(player.GetStrengthPoints() + 1);
+    }
+}
