@@ -1,91 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/Background_image" />
 
-        <TextView
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Talisman - Gameplay"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            tools:ignore="ExtraText">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_talisman_lgo"
-            android:contentDescription="Talisman Logo"
-            android:layout_marginBottom="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Talisman - Gameplay"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step 1: Setup the Game Board"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_talisman_logo" />
+                android:layout_marginBottom="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="The board loads automatically. "
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Long ago, a powerful wizard ruled the land of Talisman. When he died, he hid his most powerful weapon - The Crown of Commandment. Hundreds of years later, many adventurers still seek the crown. Be the one who'll claim it and rule the world of Talisman!" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step 2: Choose Characters"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 1: Setup the Game Board"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="each player has an icon which will represent him during the game."
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The board loads automatically. Each of the players start at a certain tile"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step 3: Movement and Encounters"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 2: Characters Upload"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="On your turn, the system will roll a die and move your character figure that many spaces. You will encounter the tile you land on. You can choose to attack other players on the same tile."
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="each player has an icon which will represent him during the game. Players start with 2 Strength, 2 Skill and 4 Life points"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step 4: Winning the Game"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 3: Movement and Encounters"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="To win, a player must reach the Crown of Command by defeating the Guard while holding the Talisman in the center of the board and use the Command Spell to eliminate all other players."
-            android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="On your turn, the system will roll a die and move you'll move your character the required number of spaces. You will encounter the tile you land on. You can choose to attack other players on the same tile."
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
 
-        <!-- Add more instructions as needed -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 4: Winning the Game"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="To win, a player must reach the Crown of Command by defeating the Guard while holding the Talisman in the center of the board."
+                android:textSize="16sp" />
+
+            <!-- Add more instructions as needed -->
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
