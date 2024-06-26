@@ -1,0 +1,31 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Player;
+import com.example.talisman.Tile;
+public class FountainOfLife extends AdventureCard
+{
+    private int LifeLeft;
+    private Tile MyTile;
+
+    public FountainOfLife(Player player)
+    {
+        super("Fountain of Life");
+        LifeLeft = 4;
+        this.MyTile = player.GetCurrTile();
+        player.SetLifePoints(player.GetLifePoints() + 1);
+        this.LifeLeft -= 1;
+    }
+    public void UseCard(Player player)
+    {
+        if(this.LifeLeft == 0)
+        {
+            MyTile.RemoveAdventureCard(this);
+        }
+        else{
+            player.SetLifePoints(player.GetLifePoints() + 1);
+            this.LifeLeft -= 1;
+        }
+    }
+
+}
