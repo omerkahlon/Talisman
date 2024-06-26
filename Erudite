@@ -1,33 +1,42 @@
-public class Erudite
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Dice;
+import com.example.talisman.Player;
+public class Erudite extends AdventureCard
 {
     public Erudite()
     {
-
+        super("Erudite");
     }
-    public String EruditeInteraction(Player Pl ,int rollResult)
-    {
+    public String EruditeInteraction(Player Pl) {
         if (Pl.GetSkillPoints() >= 4)
         {
-            if (rollResult == 1) {
-                // Drawspell
-                return ("The Erudite gave you a spell!");
-            } else if (rollResult == 2) {
-                Pl.AddGold(1);
-                return ("The Erudite gave you a gold!");
-            } else if (rollResult == 3) {
-                Pl.SetStrengthPoints(Pl.GetStrengthPoints() + 1);
-                return ("The Erudite gave you 1 strength!");
-            } else if (rollResult == 4) {
-                Pl.SetSKillPoints(Pl.GetSkillPoints() + 1);
-                return ("The Erudite gave you 1 skill!");
-            } else if (rollResult == 5) {
-                Pl.SetLifePoints(Pl.GetLifePoints() + 1);
-                return ("The Erudite gave you 1 life!");
-            } else if (rollResult == 6) {
-                Pl.SetCurrTile(//NewTIle);
-                return ("The Erudite teleported you to" + Pl.GetCurrTile().GetName() + "!");
+            Dice d = new Dice(4);
+            int rollResult = d.Roll();
+            String message;
+            switch (rollResult) {
+                case 3:
+                    Pl.SetCurrGold(Pl.Curr_Gold + 2);
+                    message = "The Erudite gave you a gold!";
+                    break;
+                case 4:
+                    Pl.SetStrengthPoints(Pl.GetStrengthPoints() + 1);
+                    message = "The Erudite gave you 1 strength!";
+                    break;
+                case 5:
+                    Pl.SetSkillPoints(Pl.GetSkillPoints() + 1);
+                    message = "The Erudite gave you 1 skill!";
+                    break;
+                case 6:
+                    Pl.SetLifePoints(Pl.GetLifePoints() + 1);
+                    message = "The Erudite gave you 1 life!";
+                    break;
+                default:
+                    message = "The Erudite seems confused..."; // Handle unexpected roll results
             }
+            return message;
         }
-        //remove from tile
+        return "The Erudite ignores you. You need more skill!";
     }
 }
