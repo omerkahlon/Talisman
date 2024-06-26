@@ -1,9 +1,10 @@
-package com.example.mytal.SpecialTiles;
 
-import com.example.mytal.Board;
-import com.example.mytal.Enemy;
-import com.example.mytal.Player;
-import com.example.mytal.Tile;
+package com.example.talisman.SpecialTiles;
+
+import com.example.talisman.Board;
+import com.example.talisman.Enemy;
+import com.example.talisman.Player;
+import com.example.talisman.Tile;
 
 public class Inn extends Tile
 {
