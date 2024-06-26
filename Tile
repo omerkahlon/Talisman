@@ -1,4 +1,5 @@
-package com.example.mytal;
+
+package com.example.talisman;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ public class Tile {
     public ArrayList<Player> Players;
     public Boolean IsSpecial;
     public int MapIndex;
+    public ArrayList<AdventureCard> AdventureCards;
 
     public Tile(Integer DrawCard, String TileName, Boolean IsSpecial, int Index){
         this.DrawCard = DrawCard;
@@ -20,6 +22,7 @@ public class Tile {
         this.MapIndex = Index;
         Enemys = null;
         Players = null;
+        AdventureCards = null;
     }
 
     public Integer GetDrawCard()
@@ -53,9 +56,19 @@ public class Tile {
     {
         this.HasPlayer = HP;
     }
-
+    public void AddAdventureCard(AdventureCard AC)
+    {
+        this.AdventureCards.add(AC);
+    }
+    public void RemoveAdventureCard(AdventureCard AC)
+    {
+        if (AdventureCards.contains(AC))
+        {
+            AdventureCards.remove(AC);
+        }
+    }
     public virtual void Interaction()
     {
-        if 
+
     }
 }
