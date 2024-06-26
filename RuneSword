@@ -1,0 +1,19 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.Item;
+import com.example.talisman.Player;
+
+public class RuneSword extends Item
+{
+    public RuneSword()
+    {
+        super("Rune Sword");
+    }
+    public void UseCard(Player player)
+    {
+        if (player.GetTendency() != 2)
+        {
+            player.SetStrengthPoints(player.GetStrengthPoints() + 2);
+        }
+    }
+}
