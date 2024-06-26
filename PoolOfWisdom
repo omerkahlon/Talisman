@@ -1,0 +1,29 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Player;
+import com.example.talisman.Tile;
+public class PoolOfWisdom extends AdventureCard
+{
+    public Tile MyTile;
+    private int SkillLeft;
+    public PoolOfWisdom(Player player)
+    {
+        super("Pool of Wisdom");
+        SkillLeft = 4;
+        this.MyTile = player.GetCurrTile();
+        player.SetSkillPoints(player.GetSkillPoints() + 1);
+        this.SkillLeft -= 1;
+    }
+    public void UseCard(Player player)
+    {
+        if(this.SkillLeft == 0)
+        {
+            MyTile.RemoveAdventureCard(this);
+        }
+        else{
+            player.SetSkillPoints(player.GetSkillPoints() + 1);
+            this.SkillLeft -= 1;
+        }
+    }
+}
