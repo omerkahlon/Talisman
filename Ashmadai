@@ -1,0 +1,20 @@
+package com.example.talisman.AdventureCards;
+
+import com.example.talisman.AdventureCard;
+import com.example.talisman.Player;
+
+public class Ashmadai extends AdventureCard
+{
+    public Ashmadai()
+    {
+        super("Ashmadai");
+    }
+    public void UseCard(Player player)
+    {
+        if (player.GetTendency() == 0)
+        {
+            player.SetSkillPoints(player.GetSkillPoints() + 1);
+        }
+        else player.SetTendancy(0);
+    }
+}
